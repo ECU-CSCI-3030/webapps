@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vampire Checker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+</head>
+<body>
+
+
+
+<div class="container">
+  <h2>Form control: input</h2>
+  <form>
+    <div class="form-row">
+      <!-- md is short for Medium, >= 768 px -->
+      <div class="form-group col-md-4">
+        <label for="first_name">First Name</label>
+        <!-- possible types:  text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color. -->
+        <input type="text" class="form-control" id="first_name" placeholder="Frist Name">
+        <!-- <input type="time" class="form-control" id="first_name" placeholder="Frist Name"> -->
+        <!-- <input type="color" class="form-control" id="first_name" placeholder="Frist Name"> -->
+      </div>
+
+      <!-- The .form-group class is the easiest way to add some structure to forms. It provides a flexible class that encourages proper grouping of labels, controls, optional help text, and form validation messaging. -->
+      <div class="form-group col-md-4">
+        <label for="middle_name">Middle Name</label>
+        <input type="text" class="form-control" id="middle_name" placeholder="Middle Name">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+      </div>
+    </div>
+
+
+   <div class="form-row">
+      <div class="form-group col-md-12">
+        <div class="radio">
+          <!-- name shows this two buttons are in the same group-->
+          <label><input type="radio" name="optradio" id="male_radio" checked>Male</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" id="female_radio">Female</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <!-- without this, your rows will not be aligned -->
+      <div class="form-group col-md-12">
+        <div class="checkbox">
+          <label><input type="checkbox" id="galic_checkbox">Doesn't eat garlic?</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" id="pale_checkbox">Pale complexion?</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" id="shadow_checkbox">Has no shadow?</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- edit these fields so that they're firstname, middle, last, and answers to the checkboxes above
+<div class="container">
+  <table class="table table-bordered" id="saving_table">
+     <caption>Classmatea</caption>
+     <thead>
+       <tr>
+         <th>Month</th>
+         <th>Savings</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>January</td>
+         <td>$100</td>
+       </tr>
+       <tr>
+         <td>February</td>
+         <td>$80</td>
+       </tr>
+     </tbody>
+     <tfoot>
+       <tr>
+         <td>Sum</td>
+         <td>$180</td>
+       </tr>
+     </tfoot>
+   </table>
+ 
+   <button class="btn btn-primary" onclick="insert_row()">Insert a Row</button>
+   <button class="btn btn-primary" onclick="delete_row()">Delete the second Row</button>
+   <button class="btn btn-primary" onclick="delete_last_row()">Delete the last Row</button>
+ </div>
+
+</body>
+</html>
