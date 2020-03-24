@@ -3,14 +3,20 @@ vampire_check.js
 var classmate_data = [ // demo in console how to access each element
     // e.g. classmate_data[0]['name']
     {
-      'name'      : 'John Smith',
-      'shadow'    : 'no',
-      'galic'     : 'no',
-      'complexion': 'pale'
+      'first_name'      : 'John Smith',
+      'middle_name'      : 'John Smith',
+      'last_name'      : 'John Smith',
+      'gender'    : 'no',
+      'garlic'     : 'no',
+      'complexion': 'pale',
+      'shadow': 'no'
     },
-  ];
+];
 
-function insert_row(){
+var num_of_humans = 0;
+var num_of_vampires = 0;
+
+function insert_row() {
     var table = document.getElementById("classmate_data");
     // Create an empty <tr> element and add it to the 1st position of the table:
     // BE CAREFUL!!! row 0 is our heading row
@@ -25,15 +31,48 @@ function insert_row(){
     var cell5 = row.insertCell(4);
     var cell6 = row.insertCell(5);
     var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+    var cell9 = row.insertCell(8);//num of humans
+    var cell10 = row.insertCell(9);// num of vampires
+
+    var count = 0;
 
     // Add some text to the new cells:
-    cell1.innerHTML = first_name; // change to be var == classmate first name
-    cell2.innerHTML = middle_name// as above with middle name
-    cell3.innerHTML = last_name;
-    cell4.innerHTML = gender;
-    cell5.innerHTML = garlic;
-    cell6.innerHTML = shadow;
-    cell7.innerHTML = pale;
+    cell1.innerHTML = $("input[id='first_name']").val(); // change to be var == classmate first name
+    cell2.innerHTML = $("input[id='middle_name']").val()// as above with middle name
+    cell3.innerHTML = $("input[id='last_name']").val();
+    cell4.innerHTML = $("input[name='gender']:checked").val();
+
+    if ($("input[id='galic_checkbox']:checked").val()) {
+        cell5.innerHTML = 'Yes';
+        count += 3;
+    }
+    else {
+        cell5.innerHTML = 'No';
+    }
+    if ($("input[id='pale_checkbox']:checked").val()) {
+        cell6.innerHTML = 'Yes';
+        count += 3;
+    }
+    else {
+        cell6.innerHTML = 'No';
+    }
+    if ($("input[id='shadow_checkbox']:checked").val()) {
+        cell7.innerHTML = 'Yes';
+        count += 4;
+    }
+    else {
+        cell7.innerHTML = 'No';
+    }
+
+
+    cell8.innerHTML = count;
+
+    count < 6 ? table.setAttribute("humVal", parseInt(table.getAttribute("humVal")) + 1) : table.setAttribute("vampVal", parseInt(table.getAttribute("vampVal")) + 1);
+
+    cell9.innerHTML = table.getAttribute("humVal");
+    cell10.innerHTML = table.getAttribute("vampVal");
+    update_table(parseInt(table.getAttribute("humVal")), parseInt(table.getAttribute("vampVal")));
   }
 function delete_row(){
     // delete the second row
@@ -47,7 +86,7 @@ function delete_last_row(){
     table.deleteRow(row_count -1);
   }
 
-function update_table(classmate_data){
+function update_table(human_value, vampire_value){
     google.charts.load('current', {'packages':['corechart']});
 
     // Set a callback to run when the Google Visualization API is loaded.
@@ -65,7 +104,12 @@ function update_table(classmate_data){
       // Set chart options
       var options = {'title':'How many vampires in the class?',
                      'width':400,
-                     'height':300};
+                     'height':300,
+                     'legendTextStyle': { color: '#cc3399' },
+                     'titleTextStyle': { color: '#cc3399' },
+                     'colors': ['#5dcc42', '#e6693e'],
+                     'is3D': true,
+                     'backgroundColor': 'transparent'};
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -75,26 +119,12 @@ function update_table(classmate_data){
     // model of MVC
     // function classmate_data_processing(input_data, result_data){
     function classmate_data_processing(result_data){
-      // this function process classmate data and create data table
-      var num_human = 0;
-      var num_vampire = 0;
-      for (var i =  0; i <= classmate_data.length - 1; i++) {
-      // for (var i =  0; i <= input_data.length - 1; i++) {
-        // logic based on shadow 
-        if(classmate_data[i]['shadow'] == 'no'){
-        // if(input_data[i]['shadow'] == 'no'){
-          num_vampire ++;
-        }
-        else{
-          num_human ++;
-        }
-      }
       // Create the data table.
       result_data.addColumn('string', 'Element');
       result_data.addColumn('number', 'Count');
-      result_data.addRows([     
-        ['Human', num_human],
-        ['Vampire', num_vampire]
+        result_data.addRows([
+            ['Human', human_value],
+            ['Vampire', vampire_value]
       ]);
 
     }

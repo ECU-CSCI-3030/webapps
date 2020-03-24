@@ -1,14 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Vampire Checker</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
+    <title>Vampire Checker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"></script>
+    <script src="./vampire_check.js"></script>
+    <style>
+        body {
+            background-color: #202020;
+            color: #cc3399;
+            margin-left: 1em;
+        }
+    </style>
+   
 </head>
 <body>
 
@@ -22,7 +31,7 @@
       <div class="form-group col-md-4">
         <label for="first_name">First Name</label>
         <!-- possible types:  text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color. -->
-        <input type="text" class="form-control" id="first_name" placeholder="Frist Name">
+        <input type="text" class="form-control" id="first_name" placeholder="First Name">
         <!-- <input type="time" class="form-control" id="first_name" placeholder="Frist Name"> -->
         <!-- <input type="color" class="form-control" id="first_name" placeholder="Frist Name"> -->
       </div>
@@ -44,10 +53,10 @@
       <div class="form-group col-md-12">
         <div class="radio">
           <!-- name shows this two buttons are in the same group-->
-          <label><input type="radio" name="optradio" id="male_radio" checked>Male</label>
+          <label><input type="radio" name="gender" value="Male" checked>Male</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="optradio" id="female_radio">Female</label>
+          <label><input type="radio" name="gender" value="Female">Female</label>
         </div>
       </div>
     </div>
@@ -69,38 +78,28 @@
   </form>
 </div>
 
-<!-- edit these fields so that they're firstname, middle, last, and answers to the checkboxes above
 <div class="container">
-  <table class="table table-bordered" id="saving_table">
-     <caption>Classmatea</caption>
+  <table class="table table-bordered" id="classmate_data" humVal=0 vampVal=0>
+     <caption>Are My Classmates Vampires</caption>
      <thead>
-       <tr>
-         <th>Month</th>
-         <th>Savings</th>
-       </tr>
+         <tr>
+             <th>First Name</th>
+             <th>Middle Name</th>
+             <th>Last Name</th>
+             <th>Gender</th>
+             <th>Garlic</th>
+             <th>Pale</th>
+             <th>Shadow</th>
+             <th>count</th>
+             <th>num of humans</th>
+             <th>num of vampires</th>
+         </tr>
      </thead>
-     <tbody>
-       <tr>
-         <td>January</td>
-         <td>$100</td>
-       </tr>
-       <tr>
-         <td>February</td>
-         <td>$80</td>
-       </tr>
-     </tbody>
-     <tfoot>
-       <tr>
-         <td>Sum</td>
-         <td>$180</td>
-       </tr>
-     </tfoot>
    </table>
  
-   <button class="btn btn-primary" onclick="insert_row()">Insert a Row</button>
-   <button class="btn btn-primary" onclick="delete_row()">Delete the second Row</button>
-   <button class="btn btn-primary" onclick="delete_last_row()">Delete the last Row</button>
- </div>
+   <button class="btn btn-primary" onclick="insert_row()">Submit</button>
 
+ </div>
+ <div id="chart_div"></div>
 </body>
 </html>
