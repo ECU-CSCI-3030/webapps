@@ -17,15 +17,24 @@
             margin-left: 1em;
         }
     </style>
-   
+
 </head>
 <body>
 
+<div class="container">
+  <h2>Form control: select</h2>
 
+  <div class="form-group">
+    <label for="mySelect">Select Model Logic:</label>
+    <select class="form-control" id="mySelect">
+      <option value='1'>Random Guess</option>
+      <option value='2'>Question Based</option>
+    </select>   
+  </div>
+
+</div>
 
 <div class="container">
-  <h2>Form control: input</h2>
-  <form>
     <div class="form-row">
       <!-- md is short for Medium, >= 768 px -->
       <div class="form-group col-md-4">
@@ -61,21 +70,22 @@
       </div>
     </div>
 
-    <div class="form-row">
-      <!-- without this, your rows will not be aligned -->
-      <div class="form-group col-md-12">
-        <div class="checkbox">
-          <label><input type="checkbox" id="galic_checkbox">Doesn't eat garlic?</label>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" id="pale_checkbox">Pale complexion?</label>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" id="shadow_checkbox">Has no shadow?</label>
-        </div>
-      </div>
-    </div>
-  </form>
+   <form name="questions">
+       <div class="form-row">
+           <!-- without this, your rows will not be aligned -->
+           <div class="form-group col-md-12">
+               <div class="checkbox">
+                   <label><input type="checkbox" id="galic_checkbox">Doesn't eat garlic?</label>
+               </div>
+               <div class="checkbox">
+                   <label><input type="checkbox" id="pale_checkbox">Pale complexion?</label>
+               </div>
+               <div class="checkbox">
+                   <label><input type="checkbox" id="shadow_checkbox">Has no shadow?</label>
+               </div>
+           </div>
+       </div>
+   </form>
 </div>
 
 <div class="container">
@@ -90,9 +100,6 @@
              <th>Garlic</th>
              <th>Pale</th>
              <th>Shadow</th>
-             <th>count</th>
-             <th>num of humans</th>
-             <th>num of vampires</th>
          </tr>
      </thead>
    </table>
@@ -100,6 +107,6 @@
    <button class="btn btn-primary" onclick="insert_row()">Submit</button>
 
  </div>
- <div id="chart_div"></div>
+ <div id="chart_div" align='center'></div>
 </body>
 </html>

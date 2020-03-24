@@ -31,9 +31,7 @@ function insert_row() {
     var cell5 = row.insertCell(4);
     var cell6 = row.insertCell(5);
     var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);//num of humans
-    var cell10 = row.insertCell(9);// num of vampires
+
 
     var count = 0;
 
@@ -43,35 +41,37 @@ function insert_row() {
     cell3.innerHTML = $("input[id='last_name']").val();
     cell4.innerHTML = $("input[name='gender']:checked").val();
 
-    if ($("input[id='galic_checkbox']:checked").val()) {
-        cell5.innerHTML = 'Yes';
-        count += 3;
+    if ($("select[id='mySelect'] option:selected").index() == 0) {
+        Math.random() >= 0.5 ? table.setAttribute("humVal", parseInt(table.getAttribute("humVal")) + 1) : table.setAttribute("vampVal", parseInt(table.getAttribute("vampVal")) + 1);
+        cell5.innerHTML = 'Random';
+        cell6.innerHTML = 'Random';
+        cell7.innerHTML = 'Random';
     }
     else {
-        cell5.innerHTML = 'No';
-    }
-    if ($("input[id='pale_checkbox']:checked").val()) {
-        cell6.innerHTML = 'Yes';
-        count += 3;
-    }
-    else {
-        cell6.innerHTML = 'No';
-    }
-    if ($("input[id='shadow_checkbox']:checked").val()) {
-        cell7.innerHTML = 'Yes';
-        count += 4;
-    }
-    else {
-        cell7.innerHTML = 'No';
+        if ($("input[id='galic_checkbox']:checked").val()) {
+            cell5.innerHTML = 'Yes';
+            count += 3;
+        }
+        else {
+            cell5.innerHTML = 'No';
+        }
+        if ($("input[id='pale_checkbox']:checked").val()) {
+            cell6.innerHTML = 'Yes';
+            count += 3;
+        }
+        else {
+            cell6.innerHTML = 'No';
+        }
+        if ($("input[id='shadow_checkbox']:checked").val()) {
+            cell7.innerHTML = 'Yes';
+            count += 4;
+        }
+        else {
+            cell7.innerHTML = 'No';
+        }
+        count < 6 ? table.setAttribute("humVal", parseInt(table.getAttribute("humVal")) + 1) : table.setAttribute("vampVal", parseInt(table.getAttribute("vampVal")) + 1);
     }
 
-
-    cell8.innerHTML = count;
-
-    count < 6 ? table.setAttribute("humVal", parseInt(table.getAttribute("humVal")) + 1) : table.setAttribute("vampVal", parseInt(table.getAttribute("vampVal")) + 1);
-
-    cell9.innerHTML = table.getAttribute("humVal");
-    cell10.innerHTML = table.getAttribute("vampVal");
     update_table(parseInt(table.getAttribute("humVal")), parseInt(table.getAttribute("vampVal")));
   }
 function delete_row(){
