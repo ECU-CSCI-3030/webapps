@@ -31,7 +31,7 @@ def index():
     return render_template('account.html', log=log)
 
 
-@app.route('/log_in', methods=['POST'], ['GET'])
+@app.route('/log_in', methods=['POST', 'GET'])
 def log_in():
     error = None
     if request.method == 'POST':
@@ -42,7 +42,7 @@ def log_in():
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('account'))
-    return render_template('login.html', error=error)
+    return render_template('log_in.html', error=error)
 
 
 @app.route('/registration')
