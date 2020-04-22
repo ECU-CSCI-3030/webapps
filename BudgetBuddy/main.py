@@ -28,7 +28,7 @@ def check_password(hashed_password, user_password):
 def index():
     # this is your index page
     log = 'Index.'
-    return render_template('account.html', log=log)
+    return redirect(url_for('log_in'))
 
 
 @app.route('/log_in', methods=['POST', 'GET'])
