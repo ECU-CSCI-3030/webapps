@@ -9,13 +9,13 @@ app = Flask(__name__)
 def index():
     # this is your index page
     log = 'Index.'
-    return render_template('index.html', log_index = log)
+    return render_template('Account.html', log_index = log)
 
-@app.route('/background')
+@app.route('/LogIn')
 def background():
-    # this is your index page
-    log = 'background.'
-    return render_template('background.html', log_background = log)
+    # this is your LogIn page
+    log = 'LogIn.'
+    return render_template('LogIn.html', log_background = log)
 
 
 if __name__ == '__main__':
