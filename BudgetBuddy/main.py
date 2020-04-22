@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, json
+import _sqlite3
 import util
 
 
@@ -15,7 +16,31 @@ def index():
 def background():
     # this is your LogIn page
     log = 'LogIn.'
-    return render_template('LogIn.html', log_background = log)
+    return render_template('LogIn.html', log_background = log)\
+
+@app.route('/Registration')
+def background():
+    # this is your LogIn page
+    log = 'LogIn.'
+    return render_template('Registration.html', log_background = log)
+
+@app.route('/Forecast')
+def background():
+    # this is your LogIn page
+    log = 'LogIn.'
+    return render_template('Forecast.html', log_background = log)
+
+@app.route('/MonthlyExpenses')
+def background():
+    # this is your LogIn page
+    log = 'LogIn.'
+    return render_template('MonthlyExpenses.html', log_background = log)
+
+@app.route('/Income')
+def background():
+    # this is your LogIn page
+    log = 'LogIn.'
+    return render_template('Income.html', log_background = log)
 
 
 if __name__ == '__main__':
