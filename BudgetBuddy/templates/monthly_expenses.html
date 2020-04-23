@@ -6,10 +6,54 @@
 
 {% block title %}Monthly Expenses{% endblock %}
 
-{% block nav_background %}class="active"{% endblock %}
+{% block nav_monthly__xpenses %}class="active"{% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-6">
+            <form method="POST">
 
-<p>{{log}}</p>
-  
+                <div class="form-group">
+                    <label for="first_name">Expense Name</label>
+                    <input type="text" class="form-control" id="expense_name" placeholder="Expense Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="middle_name">Expense Amount</label>
+                    <input type="text" class="form-control" id="expense_amount" placeholder="Expense Amount">
+                </div>
+
+                <div class="radio">
+                    <!-- name shows this two buttons are in the same group-->
+                    <label><input type="radio" name="Repeats" value="False" onclick="hideQuestions()" checked>One Time Occurrence</label>
+                </div>
+
+                <div class="radio">
+                    <label><input type="radio" name="Repeats" value="True" onclick="showQuestions()">Repeating</label>
+                </div>
+
+                <div class="form-row" id="Occurrence" style="display:none">
+                    <!-- without this, your rows will not be aligned -->
+                    <div class="form-group col-md-12">
+                        <div class="radio">
+                            <label><input type="radio" name="Occurrence" value="Day" checked>Day</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Occurrence" value="Weekly">Weekly</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Occurrence" value="Bi-Weekly">Bi-Weekly</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Occurrence" value="Monthly">Monthly</label>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

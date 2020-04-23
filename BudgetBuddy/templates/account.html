@@ -6,10 +6,43 @@
 
 {% block title %}Account{% endblock %}
 
-{% block nav_background %}class="active"{% endblock %}
+{% block nav_account %}class="active"{% endblock %}
 
 {% block content %}
 
-<p>{{log}}</p>
-  
+<div class="container">
+    <h2>Account Balance: {{ balance }}</h2>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-6">
+            <form method="POST">
+                <button type="submit" class="btn form-control btn-default">Add New Expenses</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-6">
+            <form method="POST">
+                <button type="submit" class="btn form-control btn-default">Add To Balance</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 40px">
+        <div class="col-sm-6">
+            <form method="POST">
+                <button type="submit" class="btn form-control btn-default">Financial Forecast</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

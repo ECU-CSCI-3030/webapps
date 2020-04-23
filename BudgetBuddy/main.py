@@ -45,28 +45,35 @@ def log_in():
     return render_template('log_in.html', error=error)
 
 
-@app.route('/registration')
+@app.route('/account', methods=['POST', 'GET'])
+def account():
+    # this is your LogIn page
+    log = 'Account.'
+    balance = 6.9
+    return render_template('account.html', log=log, balance = balance)
+
+@app.route('/registration', methods=['POST', 'GET'])
 def registration():
     # this is your LogIn page
     log = 'Registration.'
     return render_template('registration.html', log=log)
 
 
-@app.route('/forecast')
+@app.route('/forecast', methods=['POST', 'GET'])
 def forecast():
     # this is your LogIn page
     log = 'Forecast.'
     return render_template('forecast.html', log=log)
 
 
-@app.route('/monthly_expenses')
+@app.route('/monthly_expenses', methods=['POST', 'GET'])
 def monthly_expenses():
     # this is your LogIn page
     log = 'MonthlyExpenses.'
     return render_template('monthly_expenses.html', log=log)
 
 
-@app.route('/income')
+@app.route('/income', methods=['POST', 'GET'])
 def income():
     # this is your LogIn page
     log = 'Income.'
